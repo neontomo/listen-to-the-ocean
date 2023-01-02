@@ -1,0 +1,282 @@
+@font-face {
+    font-family: 'GT Pressura Mono';
+    src: url("https://neontomo.com/css/fonts/GTPressuraMono.woff2");
+}
+* {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+html, body {
+	touch-action: none;
+	height: 100%;
+	overflow: hidden;
+	user-select: none;
+/*	cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='58' viewport='0 0 100 100' style='fill:black;font-size:34px;'><text y='50%'>🗑️</text></svg>") 10 20, auto;*/
+	cursor: none;
+	font-family: 'GT Pressura Mono' !important;
+	font-size: 15px;
+	padding: 0;
+	margin: 0;
+}
+#fishCounter {
+	font-weight: bold;
+	position: fixed;
+	top: 20px;
+	left: 30px;
+	opacity: 0.5;
+	font-size: 13px;
+}
+#fishCounter > span {
+	margin-right: 15px !important;
+}
+#instructions {
+	display: none;
+	position: fixed;
+	top: 70px;
+	left: 30px;
+	opacity: 0.7;
+	max-width: 80%;
+}
+#main {
+/*	background-image: url('../img/backgrounds/underwater.jpg');
+	background-repeat: no-repeat;
+	background-position: left top;*/
+	height: 100vh;
+	display: block;
+	background: rgb(2,0,36);
+	background: linear-gradient(0deg, rgba(2,0,36,1) 12%, rgba(21,21,84,1) 30%, rgba(0,212,255,1) 100%);
+}
+#all_fish {
+	margin: 130px 0 50px 30px;
+	text-align: center;
+}
+.fish {
+	display: block;
+	position: absolute !important;
+	width: 100px;
+}
+.fish img {
+	width: 100%;
+	display: block;
+}
+.fish[dead="true"] {
+	filter: grayscale(1) brightness(30%);
+}
+#all_fish .fish[direction="0"] img[flap="0"] {
+	transform: scaleX(-1) rotateY(0deg) !important;
+}
+#all_fish .fish[direction="0"] img[flap="1"] {
+	transform: scaleX(-1) rotateY(-25deg) !important;
+}
+#all_fish .fish[direction="1"] img[flap="0"] {
+	transform: scaleX(1) rotateY(0deg) !important;
+}
+#all_fish .fish[direction="1"] img[flap="1"] {
+	transform: scaleX(1) rotateY(-25deg) !important;
+}
+.bubble {
+	opacity: 0.2;
+	width: 15px;
+	height: 15px;
+	position: fixed;
+	bottom: -30px;
+	animation: rotation 7s infinite linear;
+	z-index: 0;
+}
+.bubble img {
+	width: 20px;
+}
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
+.shine {
+	width: 5px;
+	height: 5px;
+	background: #fff;
+	border-radius: 100px;
+	margin: 3px;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.light-rays {
+  position: fixed;;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(#fff, black);
+  overflow: hidden;
+  opacity: 0.2;
+  --a: rgba(3, 10, 0, 0.1);
+  --b: rgba(3, 10, 0, 1);
+  --c: rgba(3, 10, 0, 0.5);
+  --d: rgba(3, 10, 0, 0.68);
+}
+
+.light-rays:before,
+.light-rays:after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  margin: -100vmax;
+  width: 200vmax;
+  height: 200vmax;
+  opacity: 0.5;
+}
+
+.light-rays:before {
+  background: conic-gradient(
+    var(--a),
+    var(--b),
+    var(--c),
+    var(--d),
+    var(--a),
+    var(--d),
+    var(--a),
+    var(--d),
+    var(--b),
+    var(--c),
+    var(--d),
+    var(--a),
+    var(--b)
+  );
+  animation: rotate 20s infinite;
+}
+.light-rays:after {
+  background: conic-gradient(
+    var(--c),
+    transparent,
+    var(--c),
+    var(--a),
+    transparent,
+    var(--b),
+    var(--c),
+    transparent,
+    var(--c),
+    var(--a)
+  );
+  animation: rotate 20s 20s infinite reverse;
+}
+
+#coral-left {
+	background: url('../img/backgrounds/coral-left.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 35vh;
+	height: 35vh;
+	display: block;
+	left: 0;
+	bottom: 0;
+	position: absolute;
+	z-index: 51;
+}
+#coral-middle {
+	background: url('../img/backgrounds/coral-middle.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 20vh;
+	height: 20vh;
+	position: absolute;
+	display: block;
+	z-index: 52;
+	bottom: -10px;
+	left: 40vw;
+}
+#coral-right {
+	background: url('../img/backgrounds/coral-right.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width: 35vh;
+	height: 35vh;
+	display: block;
+	right: 0;
+	bottom: 0;
+	position: absolute;
+	z-index: 50;
+}
+
+.trash {
+	display: block;
+	position: absolute !important;
+	max-width: 70px;
+	z-index: 100000;
+}
+.trash img {
+	width: 100%;
+	display: block;
+}
+#curtains {
+	display: none;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background: #000;
+	opacity: 0.9;
+	z-index: 1000000;
+	cursor: default;
+}
+#curtains > span {
+	display: block;
+	max-width: 80%;
+	color: #fff;
+	font-size: 37px;
+	margin: 0 auto 60px !important;
+	text-align: center !important;
+}
+#curtains > span:first-child {
+	margin-top: 80px !important;
+}
+#scoreSpan {
+	font-size: 20px !important;
+	padding-top: 30px !important;
+}
+#scoreSpan > span {
+	margin: 0 5px !important;
+}
+#curtains input[type=button] {
+	background: #fff;
+	border: 0;
+	text-align: center !important;
+	font-size: 20px !important;
+	text-transform: uppercase;
+	margin: 40px auto !important;
+	display: block;
+	font-family: 'GT Pressura Mono' !important;
+	padding: 13px 23px !important;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+#curtains input[type=button]:hover {
+	opacity: 0.8;
+}
+@keyframes rotate1 {
+	to {
+		transform: rotate(360deg);
+	}
+}
+@keyframes rotate2 {
+	to {
+		transform: rotate(-360deg);
+	}
+}
+#bin {
+	font-size: 40px;
+	display: block;
+	position: fixed;
+	left: -300px;
+	top: -300px;
+	z-index: 1000000;
+}
