@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Life Under Water</title>
+		<meta name="description" content="Life Under Water">
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="style.css" type="text/css">
+	</head>
+	<body>
+		<div id="main">
+			<div id="endangered_fish"></div>
+			<div id="endangered_corals"></div>
+			<div id="results">
+				<img id="results_image" />
+				<img id="results_image_dead" />
+				<a href="#" id="go-back">← Go back</a>
+				<h1>Information card</h1>
+				<span class="strong">Fish name:</span>
+				<span id="results_name"></span>
+				<span class="strong">Found in regions:</span>
+				<span id="results_region"></span>
+				<span class="strong">Dangers:</span>
+				<span id="results_dangers">Pollution, plastics, overfishing, climate change</span>
+				<span class="strong">Fished per year:</span>
+				<span id="results_fishing_rate"></span>
+				<input type=button id="calculate-extinction" value="Predict extinction date" />
+				<div id="extinction_calculator"><div id="loader"></div></div>
+				<span id="prediction">Using historical data, our AI can predict future rates of pollution, plastics, overfishing, ocean temperatures and loss of habitat.<br /><br />This species has <span class="strong red years"></span> years left to live.<br /><br />The fishing industry stands to lose $<span class="strong" id="revenue-loss"></span> billion in revenue/year.</span>
+				<span id="prediction2">Using historical data, our AI can predict future rates of pollution, plastics, overfishing, ocean temperatures and loss of habitat.<br /><br />This species has <span class="strong red years"></span> years left to live.</span>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>

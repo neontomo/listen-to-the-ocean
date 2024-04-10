@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'GT Pressura Mono';
+    src: url("https://neontomo.com/css/fonts/GTPressuraMono.woff2");
+}
+html, body {
+	height:100%;
+	overflow: hidden;
+	cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🪝</text></svg>") 16 0, auto;
+	user-select: none;
+	font-family: 'JetBrains Mono' !important;
+	font-size: 15px;
+}
+#fishCounter {
+	font-weight: bold;
+	position: fixed;
+	top: 20px;
+	left: 30px;
+	opacity: 0.7;
+}
+
+#instructions {
+	position: fixed;
+	top: 70px;
+	left: 30px;
+	opacity: 0.7;
+	max-width: 80%;
+}
+body {
+	background-image: url('../img/backgrounds/underwater.jpg');
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+#endangered_fish {
+	margin: 130px 0 50px 30px;
+	text-align: center;
+}
+.fish {
+	display: block;
+	border-radius: 5px;
+	margin: 0px 20px 50px 0;
+	width: 200px;
+	min-height: 190px;
+	padding: 10px;
+	position: fixed !important;
+}
+.fish img {
+	width: 100%;
+	height: inherit;
+	display: block;
+}
+.bubble {
+	opacity: 0.2;
+	width: 15px;
+	height: 15px;
+	position: fixed;
+	bottom: -30px;
+	animation: rotation 7s infinite linear;
+	z-index: -10000;
+}
+.bubble img {
+	width: 20px;
+}
+	@keyframes rotation {
+		from {
+			transform: rotate(0deg);
+		}
+		to {
+			transform: rotate(359deg);
+		}
+	}
+.shine {
+	width: 5px;
+	height: 5px;
+	background: #fff;
+	border-radius: 100px;
+	margin: 3px;
+}
+#coral {
+	background: url('../img/backgrounds/corals.png');
+	background-repeat: no-repeat;
+	width: 492px;
+	height: 459px;
+	position: fixed;
+	bottom: -100px;
+	right: 0;
+	z-index: 50;
+}

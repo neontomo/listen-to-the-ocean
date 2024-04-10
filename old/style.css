@@ -1,0 +1,326 @@
+html, body {
+	height:100%;
+	overflow: hidden;
+	user-select: none;
+}
+body {
+	background-image: url(../ocean.png);
+	background-size: auto 130%;
+	background-repeat: no-repeat;
+	background-position: left top;
+	background: rgb(2,0,36);
+	background: linear-gradient(0deg, rgba(2,0,36,1) 12%, rgba(21,21,84,1) 30%, rgba(0,212,255,1) 100%);
+}
+* {
+	font-family: arial, helvetica, monospace;
+}
+#endangered_fish {
+	margin: 130px 0 50px 30px;
+	text-align: center;
+}
+.fish {
+	display: block;
+	border-radius: 5px;
+	margin: 0px 20px 50px 0;
+	width: 150px;
+	min-height: 100px;
+	padding: 10px;
+	text-align: center;
+	opacity: 0.8;
+	position: fixed !important;
+}
+.coral {
+	display: block;
+	border-radius: 5px;
+	max-width: 250px;
+	min-height: 100px;
+	text-align: center;
+	opacity: 0.8;
+	position: fixed !important;
+	z-index: 100000;
+}
+.fish img, .coral img {
+	width: 100%;
+	height: inherit;
+	display: block;
+}
+.fish a, .coral a {
+	text-decoration: none;
+}
+.fish span, .coral span {
+	background: #000;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 12px;
+	background-color:rgba(0, 0, 0, 0.7);
+	color: #fff;
+	font-weight: bold;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+.fish:hover, .coral:hover {
+	opacity: 1
+}
+.fish:hover span, .coral:hover span {
+	background-color:#000;
+}
+#results > span {
+	display: block;
+}
+.strong {
+	font-weight: bold;
+}
+.red {
+	color: #eb4d4b;
+}
+#results {
+	font-size: 15px;
+	display: none;
+	background: #000;
+	color: #fff;
+	width: 500px;
+	border-radius: 5px;
+	background-color:rgba(0, 0, 0, 0.7);
+	padding: 30px 40px 30px;
+	margin: 30px 0 0 30px;
+	max-width: 70%;
+}
+#results h1 {
+	margin: 0;
+}
+#results span {
+	line-height: 25px;
+}
+#results span.strong {
+	margin-top: 20px;
+}
+#results_image {
+	z-index: -100;
+	max-height: 500px;
+	max-width: 500px;
+	position: fixed;
+	right: 200px;
+	top: 150px;
+}
+#results_image_dead {
+	display: none;
+	z-index: -1;
+	max-height: 500px;
+	max-width: 500px;
+	position: fixed;
+	right: 200px;
+	bottom: 500px;
+	filter: grayscale(1);
+	transform: rotate(190deg);
+}
+a {
+	color: #9488ee;
+	text-decoration: none;
+}
+a:hover {
+	color: gray;
+}
+#go-back {
+	display: inline-block;
+	margin-bottom: 20px;
+}
+#calculate-extinction {
+	background: #fff;
+	border: 0;
+	width: 100%;
+	font-size: 20px;
+	padding: 20px;
+	font-weight: bold;
+	border-radius: 5px;
+	margin: 40px auto 0;
+	display: block;
+	padding-left:60px;
+	background-image: url('https://i.imgur.com/OrvdV3A.png');
+	background-size: 40px 40px;
+	background-repeat: no-repeat;
+	background-position: 28px 15px;
+}
+#calculate-extinction:hover {
+	background-color: #eb4d4b;
+	cursor: pointer;
+}
+#extinction_calculator {
+	display: none;
+	width: 100%;
+	background: #eee;
+	margin: 40px 0 0 0;
+	padding: 0;
+}
+#loader {
+	background: #eb4d4b;
+	width: 0px;
+	border-right: 5px solid #000;
+	height: 50px;
+	margin-top: 40px;
+}
+#prediction, #prediction2 {
+	border: 1px solid #eb4d4b;
+	padding: 20px;
+	display: none;
+	margin-top: 40px;
+}
+.bubble {
+	opacity: 0.2;
+	width: 15px;
+	height: 15px;
+	position: fixed;
+	bottom: -30px;
+	animation: rotation 7s infinite linear;
+	z-index: -10000;
+}
+@keyframes rotation {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(359deg);
+	}
+}
+.shine {
+	width: 5px;
+	height: 5px;
+	background: #fff;
+	border-radius: 100px;
+	margin: 3px;
+}
+.fish:nth-child(1) {
+	/* Atlantic Bluefin Tuna */
+	right: 40px;
+	top: 10px;
+}
+.fish:nth-child(2) {
+	/* Chinese Sturgeon */
+	right: 600px;
+	top: 10px;
+}
+.fish:nth-child(3) {
+	/* Winter Skate */
+	right: 800px;
+	top: 180px;
+}
+.fish:nth-child(4) {
+	/* European Eel */
+	right: 0px;
+	top: 250px;
+}
+.fish:nth-child(5) {
+	/* Red Handfish */
+	right: 500px;
+	top: 300px;
+}
+.fish:nth-child(6) {
+	/*Nassau Grouper */
+	right: 1000px;
+	top: 300px;
+}
+.fish:nth-child(7) {
+	/* Orange Roughy */
+	right: 1000px;
+	top: 30px;
+}
+.fish:nth-child(8) {
+	/* Souther Bluefin Tuna */
+	right: 240px;
+	top: 300px;
+}
+.fish:nth-child(9) {
+	/* Beluga Sturgeon */
+	right: 1200px;
+	top: 180px;
+}
+.fish:nth-child(10) {
+	/* Atlantic Halibut */
+	right: 380px;
+	top: 100px;
+}
+
+.coral:nth-child(1) {
+	/* Staghorn */
+	right: 0px;
+	bottom: 0px;
+}
+.coral:nth-child(2) {
+	/* Elkhorn */
+	right: 380px;
+	bottom: 0px;
+}
+.coral:nth-child(3) {
+	/* Organ pipe */
+	left: 0;
+	bottom: 0;
+}
+.coral:nth-child(4) {
+	/* Organ pipe */
+	left: 380px;
+	bottom: -10px;
+}
+@media only screen and (hover: none) and (pointer: coarse) {
+	#calculate-extinction {
+		font-size: 16px;
+		color: #000;
+	}
+	.fish {
+		width: 140px;
+		display: inline;
+		position: relative;
+		top: 0 !important;
+		left: 0 !important;
+	}
+	
+	.fish:nth-child(1) {
+		/* Atlantic Bluefin Tuna */
+		left: 150px !important;
+		top: 10px;
+	}
+	.fish:nth-child(2) {
+		/* Chinese Sturgeon */
+		left: 150px !important;
+		top: 200px !important;
+	}
+	.fish:nth-child(3) {
+		/* Winter Skate */
+		top: 200px !important;
+	}
+	.fish:nth-child(4) {
+		/* European Eel */
+		right: 0px;
+		top: 400px !important;
+	}
+	.fish:nth-child(5) {
+		/* Red Handfish */
+		left: 150px !important;
+		top: 400px !important;
+	}
+	.fish:nth-child(6) {
+		/*Nassau Grouper */
+		left: 300px !important;
+		top: 500px;
+		display: none;
+	}
+	.fish:nth-child(7) {
+		/* Orange Roughy */
+		left: 300px !important;
+		top: 200px !important;
+		display: none;
+	}
+	.fish:nth-child(8) {
+		/* Souther Bluefin Tuna */
+		left: 300px !important;
+		top: 400px !important;
+		display: none;
+	}
+	.fish:nth-child(9) {
+		/* Beluga Sturgeon */
+		display: none;
+	}
+	.fish:nth-child(10) {
+		/* Atlantic Halibut */
+		right: 500px;
+		top: 200px;
+	}
+}

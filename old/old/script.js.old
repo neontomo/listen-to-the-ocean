@@ -1,0 +1,130 @@
+var amountFishImages = 58;
+var amountBubbles = 9;
+var amountFish = 20; // 13 perfect
+
+function randomInteger(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function randomDecimal(min, max) {
+	return (Math.random() * (max - min) + min).toFixed(1);
+}
+
+function generateFish() {
+	var direction = randomInteger(0, 1);
+
+	var newFish = $(
+		'<div direction="' + direction + '" class="fish">'
+			+ '<img src="./img/fish/' + randomInteger(0, amountFishImages) + '.png" />'
+		+ '</div>'
+	);
+	var size = randomInteger(0, 140);
+	$(newFish).css('top', randomInteger(30, $(window).height() - 130) + 'px');
+	$(newFish).find('img').css('width', size + '%');
+	$(newFish).css('z-index', size);
+
+	if (direction == 0) { // right to left
+		var top = randomInteger(-100, $(document).outerHeight());
+		var deg = Math.round((top / ($(document).outerHeight() / 20)) - 10) * (-1);
+
+		$(newFish).css('right', '-300px');
+		$(newFish).animate ({
+				right: $(window).width(),
+				top: top,
+		}, randomInteger(1000, 75000), 'linear', function() {
+			$(this).remove();
+			generateFish();
+		}).css({'transform': 'rotate(' + deg + 'deg)'});
+
+		$(newFish).on('mouseover', function () {
+			$(this).stop();
+			$(this).css('z-index', '49');
+
+			$(this).animate ({
+					right: $(window).width(),
+					top: randomInteger(-500, $(document).outerHeight()),
+			}, 3000, 'linear', function() {
+				$(this).remove();
+				generateFish();
+			});
+
+			$(this).find('img').animate ({ width: 50 }, 1000);
+		});
+	} else {// left to right
+		var top = randomInteger(-100, $(document).outerHeight());
+		var deg = Math.round((top / ($(document).outerHeight() / 20)) - 10);
+
+		$(newFish).css('left', '-300px');
+		$(newFish).animate ({
+				left: $(window).width(),
+				top: top
+		}, randomInteger(5000, 75000), 'linear', function() {
+			$(this).remove();
+			generateFish();
+		}).css({ 'animation': 'bounce 2s infinite', 'transform': 'rotate(' + deg + 'deg) scaleX(-1)'});
+
+		$(newFish).on('mouseover', function () {
+			$(this).stop();
+			$(this).css('z-index', '49');
+
+			$(this).animate ({
+					left: $(window).width(),
+					top: randomInteger(0, $(document).outerHeight()),
+			}, 3000, 'linear', function() {
+				$(this).remove();
+				generateFish();
+			});
+
+			$(this).find('img').animate ({ width: 50 }, 1000);
+		});
+	}
+
+	$('#endangered_fish').append(newFish);
+}
+
+rotates = [-20, 0, 20, 0];
+rotate = 0;
+
+function getRotate() {
+		rotate = (rotate >= rotates.length - 1) ? 0 : (rotate + 1);
+		return rotates[rotate];
+}
+
+setInterval(function () {
+	var direction = getRotate();
+	$('.fish img').css('transform', 'rotateY(' + direction + 'deg)');
+}, 200);
+
+function createBubble() {
+	var newElement = $('<div id="' + randomInteger(0, 10000) + '" class="bubble"><img src="./img/bubbles/' + randomInteger(0, amountBubbles) + '.png" /></div>');
+
+	$('#main').append(newElement);
+
+	$(newElement).css('left', randomInteger(10, $(window).width()));
+	$(newElement).css('zoom', randomInteger(0, 1) + '.' + randomInteger(0, 5));
+	$(newElement).css('transform', 'rotateZ(' + randomInteger(0, 300) + 'deg)');
+	$(newElement).animate({top: '-100px'}, randomInteger(19000, 25000), function () {
+		$(this).remove();
+	});
+}
+
+setInterval(function () {
+	createBubble();
+}, 600);
+
+$('body').click(function () {
+	generateFish();
+	$('#fishCount').html(Number($('#fishCount').html()) + 1);
+});
+
+for (var i = 0; i < amountFish; i++) {
+	$('body').click();
+}
+
+$('#instructions').fadeOut(1000 * 30);
+
+/*
+$('body').click(function () {
+var audio = new Audio('ocean.mp3');
+audio.play();
+});
+*/

@@ -1,41 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Listen To The Ocean</title>
-		<meta name="description" content="Listen To The Ocean">
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<link rel="stylesheet" href="https://neontomo.com/css/normalize.css" type="text/css">
-		<link rel="stylesheet" href="css/style.css" type="text/css">
-		<link rel="icon" type="image/png" href="img/favicon.png" />
-	</head>
-	<body>
-		<div id="main">
-			<div class="light-rays"></div>
-			<span id="fishCounter">
-				<span>Score: <span class="score">0</span></span>
-				<span>Highscore: <span class="highscore">0</span></span>
-				<span>Dead: <span id="fishCountDead">0</span>/<span id="fishCountAlive">0</span></span>
-			</span>
-			<div id="all_trash"></div>
-			<div id="all_fish"></div>
-			<div id="bubbles"></div>
-			<div id="coral-left"></div>
-			<div id="coral-middle"></div>
-			<div id="coral-right"></div>
-			<div id="bin">🗑️</div>
-			<div id="curtains">
-				<span>Fish eat your trash. Recycle.</span>
-				<span id="scoreSpan">
-					<span>Score: <span class="score">0</span></span>
-					<span>Highscore: <span class="highscore">0</span></span>
-				</span>
-				<input id="play_again" type="button" value="Play again" />
-			</div>
-		</div>
-		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-		<script src="js/jquery-collision.min.js"></script>
-		<script src="js/script.js"></script>
-	</body>
+  <head>
+    <title>Listen To The Ocean</title>
+    <meta name="description" content="Listen To The Ocean" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://neontomo.com/css/reset.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+  </head>
+  <body>
+    <div id="main">
+      <div class="light-rays"></div>
+      <span id="fishCounter">
+        <span>Score: <span class="score">0</span></span>
+        <span>Highscore: <span class="highscore">0</span></span>
+        <span
+          >Dead: <span id="fishCountDead">0</span>/<span id="fishCountAlive"
+            >0</span
+          ></span
+        >
+      </span>
+      <div id="all_trash"></div>
+      <div id="all_fish"></div>
+      <div id="bubbles"></div>
+      <div id="coral-left"></div>
+      <div id="coral-middle"></div>
+      <div id="coral-right"></div>
+      <div id="bin">🗑️</div>
+      <div id="curtains">
+        <span>Fish eat your trash. Recycle.</span>
+        <span id="scoreSpan">
+          <span>Score: <span class="score">0</span></span>
+          <span>Highscore: <span class="highscore">0</span></span>
+        </span>
+        <input id="play_again" type="button" value="Play again" />
+      </div>
+    </div>
+    <script src="js/jquery-3.6.1.min.js"></script>
+    <script src="js/jquery-collision.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>
